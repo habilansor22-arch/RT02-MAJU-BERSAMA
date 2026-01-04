@@ -12,8 +12,12 @@
     <style>
         :root { --primary: #1a5d1a; --accent: #f4ce14; --bg-body: #eef2ee; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: #000; scroll-behavior: smooth; padding-top: 70px; }
-        .navbar { background-color: var(--primary) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* NAVBAR FIX - Memastikan Navbar Muncul */
+        .navbar { background-color: var(--primary) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
         .nav-link { font-weight: 700; color: white !important; margin: 0 10px; }
+        .nav-link:hover { color: var(--accent) !important; }
+
         .hero-section { background: linear-gradient(rgba(26, 93, 26, 0.85), rgba(26, 93, 26, 0.85)), url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; color: white; padding: 100px 0 120px; border-radius: 0 0 40px 40px; }
         .badge-rt { background-color: var(--accent); color: #000; padding: 6px 20px; border-radius: 50px; font-weight: 800; display: inline-block; margin-bottom: 15px; }
         .visi-card-top { background-color: #f0f7f0; border: 2px solid var(--primary); padding: 30px; border-radius: 20px; max-width: 850px; margin: -60px auto 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; z-index: 10; }
@@ -26,7 +30,7 @@
         .admin-controls { display: none; }
         .btn-admin-float { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
         [contenteditable="true"]:focus { outline: 2px dashed var(--primary); background: #fffde7; }
-        .table-dark { background-color: var(--primary) !important; border: none; }
+        .table-dark { background-color: var(--primary) !important; }
     </style>
 </head>
 <body>
@@ -34,6 +38,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#home"><i class="bi bi-houses-fill me-2"></i>RT 02 GANG KABEL</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto text-center">
                 <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
@@ -60,18 +67,10 @@
     </div>
 
     <div class="row g-4 mb-5">
-        <div class="col-md-3 col-sm-6">
-            <div class="misi-card"><i class="bi bi-megaphone"></i><p>Informasi agenda & anggaran disampaikan terbuka.</p></div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="misi-card"><i class="bi bi-shield-lock"></i><p>Lingkungan tertib melalui koordinasi aktif warga.</p></div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="misi-card"><i class="bi bi-journal-check"></i><p>Administrasi jujur dan tanggung jawab penuh.</p></div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <div class="misi-card"><i class="bi bi-chat-dots"></i><p>Ruang diskusi terbuka untuk saran warga.</p></div>
-        </div>
+        <div class="col-md-3 col-sm-6"><div class="misi-card"><i class="bi bi-megaphone"></i><p>Informasi agenda & anggaran disampaikan terbuka.</p></div></div>
+        <div class="col-md-3 col-sm-6"><div class="misi-card"><i class="bi bi-shield-lock"></i><p>Lingkungan tertib melalui koordinasi aktif warga.</p></div></div>
+        <div class="col-md-3 col-sm-6"><div class="misi-card"><i class="bi bi-journal-check"></i><p>Administrasi jujur dan tanggung jawab penuh.</p></div></div>
+        <div class="col-md-3 col-sm-6"><div class="misi-card"><i class="bi bi-chat-dots"></i><p>Ruang diskusi terbuka untuk saran warga.</p></div></div>
     </div>
 </div>
 
@@ -79,16 +78,16 @@
     <section id="keuangan" class="mb-5 py-5 text-center">
         <h3 class="fw-bold text-success mb-4 text-uppercase">Transparansi Kas RT</h3>
         <div class="row g-4 mb-4">
-            <div class="col-md-4"><div class="custom-card border-bottom border-success border-5 shadow-sm"><h6 class="fw-bold text-muted small text-uppercase">Total Pendapatan</h6><h3 class="fw-bold text-success" id="stat-in">Rp 0</h3></div></div>
-            <div class="col-md-4"><div class="custom-card border-bottom border-danger border-5 shadow-sm"><h6 class="fw-bold text-muted small text-uppercase">Total Pengeluaran</h6><h3 class="fw-bold text-danger" id="stat-out">Rp 0</h3></div></div>
-            <div class="col-md-4"><div class="custom-card bg-success text-white shadow"><h6 class="fw-bold small text-uppercase">Saldo Kas Saat Ini</h6><h3 class="fw-bold" id="stat-balance">Rp 0</h3></div></div>
+            <div class="col-md-4"><div class="custom-card border-bottom border-success border-5 shadow-sm"><h6>TOTAL PENDAPATAN</h6><h3 class="fw-bold text-success" id="stat-in">Rp 0</h3></div></div>
+            <div class="col-md-4"><div class="custom-card border-bottom border-danger border-5 shadow-sm"><h6>TOTAL PENGELUARAN</h6><h3 class="fw-bold text-danger" id="stat-out">Rp 0</h3></div></div>
+            <div class="col-md-4"><div class="custom-card bg-success text-white shadow"><h6>SALDO KAS SAAT INI</h6><h3 class="fw-bold" id="stat-balance">Rp 0</h3></div></div>
         </div>
         <div class="custom-card border-0 shadow-sm text-start">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold mb-0"><i class="bi bi-list-stars me-2 text-success"></i>Rincian Arus Kas</h5>
+                <h5 class="fw-bold mb-0">Rincian Arus Kas</h5>
                 <button class="btn btn-sm btn-success admin-controls rounded-pill px-3 fw-bold" onclick="addItem('transaksi')">+ Tambah</button>
             </div>
-            <div class="table-responsive"><table class="table table-hover align-middle"><thead class="table-dark"><tr><th>Tgl</th><th>Keterangan</th><th class="text-end">Masuk</th><th class="text-end">Keluar</th><th class="admin-controls"></th></tr></thead><tbody id="tabel-transaksi"></tbody></table></div>
+            <div class="table-responsive"><table class="table table-hover"><thead class="table-dark"><tr><th>Tgl</th><th>Keterangan</th><th class="text-end">Masuk</th><th class="text-end">Keluar</th><th class="admin-controls"></th></tr></thead><tbody id="tabel-transaksi"></tbody></table></div>
         </div>
     </section>
 
@@ -97,7 +96,7 @@
             <h3 class="fw-bold mb-4 text-center">Formulir Lapor Diri</h3>
             <form onsubmit="alert('Data berhasil terkirim!'); return false;">
                 <div class="row">
-                    <div class="col-md-6 mb-3"><label class="form-label small fw-bold">Nama Sesuai KTP</label><input type="text" class="form-control" required></div>
+                    <div class="col-md-6 mb-3"><label class="form-label small fw-bold">Nama Lengkap</label><input type="text" class="form-control" required></div>
                     <div class="col-md-6 mb-3"><label class="form-label small fw-bold">No. HP / WhatsApp</label><input type="tel" class="form-control" required></div>
                 </div>
                 <div class="mb-3">
@@ -109,9 +108,9 @@
                 </div>
                 <div id="alamatTambahan" style="display:none;" class="bg-light p-3 rounded-4 mb-3 border">
                     <div class="mb-2"><label class="small fw-bold">Alamat Asal</label><input type="text" class="form-control"></div>
-                    <div><label class="small fw-bold">Alamat Domisili (Gang Kabel)</label><input type="text" class="form-control" placeholder="No. Rumah"></div>
+                    <div><label class="small fw-bold">Alamat Domisili</label><input type="text" class="form-control"></div>
                 </div>
-                <button type="submit" class="btn btn-success w-100 py-3 fw-bold shadow">KIRIM DATA KE PENGURUS</button>
+                <button type="submit" class="btn btn-success w-100 py-3 fw-bold">KIRIM DATA</button>
             </form>
         </div>
     </section>
@@ -119,13 +118,19 @@
     <section id="info" class="row g-4 mb-5">
         <div class="col-md-6">
             <div class="custom-card h-100 border-start border-primary border-5 shadow-sm">
-                <div class="d-flex justify-content-between align-items-center mb-3"><h4 class="fw-bold mb-0">Persyaratan Surat</h4><button class="btn btn-sm btn-primary admin-controls rounded-circle" onclick="addItem('surat')">+</button></div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="fw-bold mb-0">Persyaratan Surat</h4>
+                    <button class="btn btn-sm btn-primary admin-controls rounded-circle" onclick="addItem('surat')">+</button>
+                </div>
                 <div id="surat-container"></div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="custom-card h-100 border-start border-warning border-5 shadow-sm">
-                <div class="d-flex justify-content-between align-items-center mb-3"><h4 class="fw-bold mb-0">Agenda Rutin</h4><button class="btn btn-sm btn-warning admin-controls rounded-circle" onclick="addItem('agenda')">+</button></div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="fw-bold mb-0">Agenda Rutin</h4>
+                    <button class="btn btn-sm btn-warning admin-controls rounded-circle" onclick="addItem('agenda')">+</button>
+                </div>
                 <div id="agenda-list"></div>
             </div>
         </div>
@@ -134,9 +139,8 @@
 
 <footer class="bg-dark text-white py-5 text-center mt-5">
     <div class="container">
-        <h5 class="fw-bold mb-1 text-uppercase">RT 02 GANG KABEL - CIPONDOH</h5>
+        <h5 class="fw-bold mb-1">RT 02 GANG KABEL - CIPONDOH</h5>
         <p class="small opacity-75 mb-0">Portal Informasi Mandiri & Transparansi Lingkungan.</p>
-        <div class="small opacity-50 fw-bold mt-3">MAJU BERSAMA © 2026</div>
     </div>
 </footer>
 
@@ -146,6 +150,7 @@
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
 
 <script>
+    // KONFIGURASI FIREBASE ANDA
     const firebaseConfig = {
         apiKey: "AIzaSyDc-5D5AdOJip4KWDFxIcmo2Z1L1X2Iapk",
         authDomain: "rt02-kabel.firebaseapp.com",
@@ -178,14 +183,12 @@
         document.getElementById('visi-text').contentEditable = isAdmin;
         document.getElementById('visi-text').innerText = appData.visi;
 
-        // Auto Calc Saldo
         let tin = 0, tout = 0;
         if(appData.transaksi) appData.transaksi.forEach(t => { tin += parseInt(t.masuk||0); tout += parseInt(t.keluar||0); });
         document.getElementById('stat-in').innerText = "Rp " + tin.toLocaleString('id-ID');
         document.getElementById('stat-out').innerText = "Rp " + tout.toLocaleString('id-ID');
         document.getElementById('stat-balance').innerText = "Rp " + (tin - tout).toLocaleString('id-ID');
 
-        // Tabel Kas
         document.getElementById('tabel-transaksi').innerHTML = (appData.transaksi || []).map((t, i) => `
             <tr>
                 <td contenteditable="${isAdmin}" onblur="updateDB('transaksi',${i},'tgl',this.innerText)">${t.tgl}</td>
@@ -196,17 +199,15 @@
             </tr>
         `).join('');
 
-        // Surat + WhatsApp Link
         document.getElementById('surat-container').innerHTML = (appData.surat || []).map((s, i) => `
             <div class="mb-4">
                 <h6 class="fw-bold text-primary" contenteditable="${isAdmin}" onblur="updateSuratTitle(${i},this.innerText)">${s.title}</h6>
                 ${s.items.map((item, j) => `<p class="small fw-bold mb-1 text-muted"><i class="bi bi-check-circle-fill text-success me-2"></i><span contenteditable="${isAdmin}" onblur="updateSuratItem(${i},${j},this.innerText)">${item}</span></p>`).join('')}
-                <div class="admin-controls mt-2"><button class="btn btn-sm btn-outline-success py-0" onclick="addReq(${i})">+ Syarat</button> <button class="btn btn-sm btn-outline-danger py-0" onclick="removeItem('surat',${i})">Hapus</button></div>
+                <div class="admin-controls"><button class="btn btn-sm btn-outline-success py-0" onclick="addReq(${i})">+ Syarat</button> <button class="btn btn-sm btn-outline-danger py-0" onclick="removeItem('surat',${i})">Hapus</button></div>
                 <a href="https://wa.me/62812345678" target="_blank" class="btn btn-primary btn-sm rounded-pill px-4 mt-2 fw-bold shadow-sm">Hubungi Pak RT</a>
             </div>
         `).join('');
 
-        // Agenda
         document.getElementById('agenda-list').innerHTML = (appData.agenda || []).map((a, i) => `
             <div class="agenda-item p-3 bg-white shadow-sm rounded mb-2 position-relative" style="border-left: 5px solid var(--accent)">
                 <h6 class="fw-bold mb-0" contenteditable="${isAdmin}" onblur="updateDB('agenda',${i},'title',this.innerText)">${a.title}</h6>
@@ -233,12 +234,13 @@
     function cekKtp() { document.getElementById('alamatTambahan').style.display = (document.getElementById('ktpSelect').value === 'luar') ? 'block' : 'none'; }
     function seedData() {
         dataRef.set({
-            visi: '"Mewujudkan Lingkungan yang Harmonis, Aman, dan Mengedepankan Transparansi Informasi demi Kemajuan Bersama."',
-            transaksi: [{tgl:"05/01/26", ket:"Saldo Awal Kas", masuk:5000000, keluar:0}],
-            surat: [{title:"📌 Pengantar KTP / Domisili", items:["Fotocopy KK", "KTP Lama"]}],
-            agenda: [{title:"Rapat Bulanan", desc:"Ahad Pekan Pertama"}]
+            visi: '"Mewujudkan Lingkungan yang Harmonis..."',
+            transaksi: [{tgl:"01/01/26", ket:"Saldo Awal", masuk:0, keluar:0}],
+            surat: [{title:"📌 Pengantar KTP", items:["Fotocopy KK"]}],
+            agenda: [{title:"Agenda", desc:"Detail"}]
         });
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
