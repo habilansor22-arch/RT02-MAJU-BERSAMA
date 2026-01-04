@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Warga RT 02 Gang Kabel</title>
+    <title>Portal Transparansi RT 02 Gang Kabel</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <style>
         :root {
-            --primary: #1a5d1a; /* Hijau RT */
-            --accent: #f4ce14; /* Kuning Cerah */
+            --primary: #1a5d1a; 
+            --accent: #f4ce14;
+            --text-dark: #000000; /* Hitam pekat agar terbaca jelas */
             --bg-soft: #f8faf9;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-soft);
-            color: #2d3436;
+            color: var(--text-dark);
             scroll-behavior: smooth;
         }
 
-        /* Hero Section Spesifik Gang Kabel */
+        /* Hero Section */
         .hero-section {
-            background: linear-gradient(rgba(26, 93, 26, 0.9), rgba(26, 93, 26, 0.9)), 
-                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 120px 0 100px;
-            border-radius: 0 0 50px 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 120px 0 80px;
+            border-radius: 0 0 40px 40px;
         }
 
         .badge-rt {
@@ -40,20 +40,46 @@
             color: #000;
             padding: 5px 15px;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-weight: 800;
             margin-bottom: 15px;
             display: inline-block;
         }
 
+        /* Kartu Misi - Teks Hitam Tajam */
         .misi-card {
             border: none;
             border-radius: 20px;
             background: white;
-            transition: 0.3s;
+            padding: 30px;
             height: 100%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary);
+            transition: 0.3s;
         }
+
+        .misi-card i { font-size: 2.5rem; color: var(--primary); }
+        
+        .misi-card p {
+            color: #000000 !important;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-top: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* Tabel Transparansi Keuangan */
+        .table-container {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .table thead { background-color: var(--primary); color: white; }
+        .table th, .table td { padding: 15px; border-bottom: 1px solid #eee; color: #000; }
+        
+        .text-masuk { color: #1a5d1a; font-weight: 700; }
+        .text-keluar { color: #d32f2f; font-weight: 700; }
 
         .custom-card {
             border: none;
@@ -63,11 +89,8 @@
             padding: 25px;
         }
 
-        .nav-link { font-weight: 600; color: white !important; }
-        .section-title { font-weight: 700; margin-bottom: 40px; text-align: center; }
-        .agenda-item { border-left: 5px solid var(--primary); margin-bottom: 15px; padding-left: 15px; }
-
-        /* Button Admin */
+        .nav-link { font-weight: 700; color: white !important; }
+        .section-title { font-weight: 800; margin-bottom: 40px; text-align: center; }
         .btn-admin-float { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
     </style>
 </head>
@@ -90,44 +113,35 @@
     </div>
 </nav>
 
-<header class="hero-section text-center px-3" id="visi-misi">
-    <div class="container">
+<header class="hero-section text-center px-3">
+    <div class="container border-bottom-0" id="visi-misi">
         <div class="badge-rt">SISTEM INFORMASI WARGA</div>
-        <h1 class="display-5 fw-bold mb-2">RT 02 GANG KABEL</h1>
-        <p class="lead mb-5 opacity-75">Cipondoh, Kota Tangerang</p>
+        <h1 class="display-5 fw-bold mb-3">RT 02 GANG KABEL</h1>
+        <p class="lead fw-bold opacity-90 mb-5">"Mewujudkan Lingkungan yang Harmonis, Aman, dan Transparan"</p>
         
-        <div class="bg-white text-dark p-4 rounded-4 shadow-lg mb-5 mx-auto" style="max-width: 800px;">
-            <h5 class="fw-bold text-success mb-3">VISI KAMI</h5>
-            <p class="mb-0 italic">"Mewujudkan Lingkungan yang Harmonis, Aman, dan Mengedepankan Transparansi Informasi demi Kemajuan Bersama."</p>
-        </div>
-
-        <div class="row g-4 text-start mt-4">
+        <div class="row g-4 text-start mt-2">
             <div class="col-md-3">
-                <div class="misi-card p-4">
-                    <i class="bi bi-megaphone misi-icon text-success fs-2"></i>
-                    <h6 class="fw-bold mt-2">1. Transparansi</h6>
-                    <p class="small text-muted mb-0">Informasi agenda & anggaran disampaikan terbuka.</p>
+                <div class="misi-card text-center">
+                    <i class="bi bi-megaphone"></i>
+                    <p>Informasi agenda & anggaran disampaikan secara terbuka.</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="misi-card p-4">
-                    <i class="bi bi-shield-lock misi-icon text-success fs-2"></i>
-                    <h6 class="fw-bold mt-2">2. Keamanan</h6>
-                    <p class="small text-muted mb-0">Lingkungan tertib melalui koordinasi aktif warga.</p>
+                <div class="misi-card text-center">
+                    <i class="bi bi-shield-check"></i>
+                    <p>Lingkungan tertib melalui koordinasi aktif seluruh warga.</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="misi-card p-4">
-                    <i class="bi bi-journal-check misi-icon text-success fs-2"></i>
-                    <h6 class="fw-bold mt-2">3. Akuntabel</h6>
-                    <p class="small text-muted mb-0">Administrasi jujur dan tanggung jawab penuh.</p>
+                <div class="misi-card text-center">
+                    <i class="bi bi-journal-check"></i>
+                    <p>Administrasi jujur dan tanggung jawab penuh kepada warga.</p>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="misi-card p-4">
-                    <i class="bi bi-chat-dots misi-icon text-success fs-2"></i>
-                    <h6 class="fw-bold mt-2">4. Responsif</h6>
-                    <p class="small text-muted mb-0">Ruang diskusi terbuka untuk saran warga.</p>
+                <div class="misi-card text-center">
+                    <i class="bi bi-chat-dots"></i>
+                    <p>Ruang diskusi terbuka untuk saran dan kritik demi kemajuan.</p>
                 </div>
             </div>
         </div>
@@ -136,144 +150,99 @@
 
 <main class="container py-5">
     
-<section id="keuangan" class="mb-5 py-4">
-    <h3 class="section-title">Transparansi Keuangan RT 02</h3>
-    
-    <div class="row g-4 text-center mb-4">
-        <div class="col-md-4">
-            <div class="custom-card border-bottom border-success border-5">
-                <h6 class="fw-bold text-muted small">TOTAL PENDAPATAN</h6>
-                <h3 class="fw-bold text-success" id="disp-pendapatan">Rp 5.250.000</h3>
+    <section id="keuangan" class="mb-5">
+        <h3 class="section-title">Transparansi Keuangan RT 02</h3>
+        
+        <div class="row g-4 text-center mb-4">
+            <div class="col-md-4">
+                <div class="custom-card border-bottom border-success border-5">
+                    <h6 class="fw-bold text-muted small">TOTAL PENDAPATAN</h6>
+                    <h3 class="fw-bold text-success">Rp 5.250.000</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-card border-bottom border-danger border-5">
+                    <h6 class="fw-bold text-muted small">TOTAL PENGELUARAN</h6>
+                    <h3 class="fw-bold text-danger">Rp 1.550.000</h3>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-card bg-success text-white">
+                    <h6 class="fw-bold small">SALDO KAS SAAT INI</h6>
+                    <h3 class="fw-bold">Rp 3.700.000</h3>
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="custom-card border-bottom border-danger border-5">
-                <h6 class="fw-bold text-muted small">TOTAL PENGELUARAN</h6>
-                <h3 class="fw-bold text-danger" id="disp-pengeluaran">Rp 1.550.000</h3>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="custom-card bg-success text-white shadow">
-                <h6 class="fw-bold small">SALDO KAS SAAT INI</h6>
-                <h3 class="fw-bold" id="disp-saldo">Rp 3.700.000</h3>
-            </div>
-        </div>
-    </div>
 
-    <div class="custom-card border-0 shadow-sm">
-        <h5 class="fw-bold mb-3"><i class="bi bi-list-ul me-2"></i>Rincian Arus Kas Januari 2026</h5>
-        <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead class="table-dark">
-                    <tr>
-                        <th style="width: 15%">Tanggal</th>
-                        <th style="width: 45%">Keterangan Kegiatan</th>
-                        <th style="width: 20%" class="text-end">Masuk (Rp)</th>
-                        <th style="width: 20%" class="text-end">Keluar (Rp)</th>
-                    </tr>
-                </thead>
-                <tbody id="tabel-transaksi">
-                    <tr>
-                        <td>01/01/26</td>
-                        <td>Iuran Bulanan Warga (Wajib & Kebersihan)</td>
-                        <td class="text-success text-end">+5.000.000</td>
-                        <td class="text-end">-</td>
-                    </tr>
-                    <tr>
-                        <td>03/01/26</td>
-                        <td>Pembelian Lampu Jalan Gang Kabel (5 Titik)</td>
-                        <td class="text-end">-</td>
-                        <td class="text-danger text-end">-350.000</td>
-                    </tr>
-                    <tr>
-                        <td>05/01/26</td>
-                        <td>Biaya Angkut Sampah & Kebersihan Selokan</td>
-                        <td class="text-end">-</td>
-                        <td class="text-danger text-end">-1.200.000</td>
-                    </tr>
-                    <tr>
-                        <td>07/01/26</td>
-                        <td>Donasi Warga (Sumbangan Sukarela)</td>
-                        <td class="text-success text-end">+250.000</td>
-                        <td class="text-end">-</td>
-                    </tr>
-                </tbody>
-                <tfoot class="table-light fw-bold">
-                    <tr>
-                        <td colspan="2" class="text-center">Total Arus Kas</td>
-                        <td class="text-success text-end">+5.250.000</td>
-                        <td class="text-danger text-end">-1.550.000</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <p class="small text-muted mt-2"><i>* Data diperbarui setiap minggu sesuai catatan administrasi RT 02.</i></p>
-    </div>
-</section>
-
-    <section id="lapor" class="mb-5">
-        <div class="custom-card bg-white p-4 p-md-5">
-            <h3 class="fw-bold mb-4 text-center"><i class="bi bi-person-badge me-2"></i>Formulir Lapor Diri Warga</h3>
-            <form>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold small">Nama Sesuai KTP</label>
-                        <input type="text" class="form-control rounded-3" placeholder="Nama Lengkap">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label fw-bold small">No. HP / WhatsApp</label>
-                        <input type="tel" class="form-control rounded-3" placeholder="0812xxxx">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label fw-bold small">Jenis KTP</label>
-                    <select class="form-select rounded-3" id="ktpSelect" onchange="cekKtp()">
-                        <option value="asli">KTP Cipondoh</option>
-                        <option value="luar">KTP Luar Cipondoh</option>
-                    </select>
-                </div>
-                <div id="alamatTambahan" style="display:none;" class="bg-light p-3 rounded-4 mb-3">
-                    <div class="mb-2">
-                        <label class="small fw-bold">Alamat Asal (Sesuai KTP)</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div>
-                        <label class="small fw-bold">Alamat Domisili (Gang Kabel)</label>
-                        <input type="text" class="form-control" placeholder="No. Rumah / Kontrakan">
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <label class="form-label fw-bold small">Upload Foto KTP</label>
-                    <input type="file" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success w-100 py-3 fw-bold shadow">KIRIM DATA KE PENGURUS</button>
-            </form>
+        <div class="table-container shadow-sm">
+            <h5 class="fw-bold mb-3"><i class="bi bi-list-ul me-2"></i>Rincian Transaksi Januari 2026</h5>
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Keterangan Kegiatan</th>
+                            <th class="text-end">Masuk (Rp)</th>
+                            <th class="text-end">Keluar (Rp)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01/01/26</td>
+                            <td>Iuran Bulanan & Kebersihan Warga</td>
+                            <td class="text-end text-masuk">+5.000.000</td>
+                            <td class="text-end">-</td>
+                        </tr>
+                        <tr>
+                            <td>03/01/26</td>
+                            <td>Pembelian Lampu Jalan (5 Titik)</td>
+                            <td class="text-end">-</td>
+                            <td class="text-end text-keluar">-350.000</td>
+                        </tr>
+                        <tr>
+                            <td>05/01/26</td>
+                            <td>Biaya Angkut Sampah & Selokan</td>
+                            <td class="text-end">-</td>
+                            <td class="text-end text-keluar">-1.200.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
-    <section id="info" class="row g-4">
-        <div class="col-md-6">
-            <div class="custom-card h-100 border-start border-primary border-5">
-                <h4 class="fw-bold"><i class="bi bi-file-earmark-text me-2"></i>Surat Menyurat</h4>
-                <p class="text-muted">Butuh surat pengantar RT? Silakan hubungi admin atau isi kebutuhan di bawah ini.</p>
-                <div class="list-group list-group-flush mb-3">
-                    <div class="list-group-item bg-transparent px-0 small">📌 Pengantar Domisili</div>
-                    <div class="list-group-item bg-transparent px-0 small">📌 Pengantar SKU (Usaha)</div>
-                    <div class="list-group-item bg-transparent px-0 small">📌 Surat Keterangan Kematian/Lahir</div>
-                </div>
-                <button class="btn btn-primary btn-sm rounded-pill px-4">Ajukan via WhatsApp</button>
+    <section id="lapor" class="row g-4">
+        <div class="col-md-7">
+            <div class="custom-card h-100">
+                <h4 class="fw-bold mb-4">Formulir Lapor Diri</h4>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nama Lengkap (Sesuai KTP)</label>
+                        <input type="text" class="form-control" placeholder="Nama Lengkap">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Status KTP</label>
+                        <select class="form-select">
+                            <option>KTP Cipondoh</option>
+                            <option>KTP Luar Cipondoh</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 fw-bold py-2">KIRIM DATA</button>
+                </form>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="custom-card h-100 border-start border-warning border-5" id="agenda-box">
-                <h4 class="fw-bold"><i class="bi bi-calendar-check me-2"></i>Agenda RT 02</h4>
-                <div class="agenda-item mt-3">
-                    <h6 class="mb-0 fw-bold">Arisan & Rapat Rutin</h6>
-                    <small class="text-muted">Setiap Malam Minggu Pertama</small>
-                </div>
-                <div class="agenda-item border-info">
-                    <h6 class="mb-0 fw-bold">Jadwal Fogging Gang Kabel</h6>
-                    <small class="text-muted">Minggu Depan - Jam 08.00 WIB</small>
+        <div class="col-md-5">
+            <div id="info" class="custom-card h-100 border-start border-primary border-5">
+                <h4 class="fw-bold">Agenda Mendatang</h4>
+                <div class="mt-4">
+                    <div class="agenda-item">
+                        <h6 class="mb-0 fw-bold">Rapat Keamanan Lingkungan</h6>
+                        <small class="text-muted">Minggu, 11 Jan 2026 - 19:30 WIB</small>
+                    </div>
+                    <div class="agenda-item">
+                        <h6 class="mb-0 fw-bold">Kerja Bakti & Fogging</h6>
+                        <small class="text-muted">Minggu, 18 Jan 2026 - 07:00 WIB</small>
+                    </div>
                 </div>
             </div>
         </div>
@@ -281,92 +250,12 @@
 </main>
 
 <footer class="bg-dark text-white py-4 text-center mt-5">
-    <p class="mb-1 fw-bold">RT 02 GANG KABEL - CIPONDOH</p>
-    <p class="small opacity-50 mb-0">Melayani dengan Jujur, Transparan, dan Kekeluargaan.</p>
+    <p class="mb-0 opacity-75">© 2026 Pengurus RT 02 Gang Kabel | Transparansi & Akuntabilitas</p>
 </footer>
 
 <div class="btn-admin-float">
-    <button class="btn btn-dark shadow-lg rounded-circle p-3" data-bs-toggle="modal" data-bs-target="#modalLogin">
-        <i class="bi bi-gear-wide-connected"></i>
-    </button>
+    <button class="btn btn-dark shadow-lg rounded-circle p-3"><i class="bi bi-gear-fill"></i></button>
 </div>
-
-<div class="modal fade" id="modalLogin" tabindex="-1">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body p-4 text-center">
-                <h6 class="fw-bold">Login Pengurus RT 02</h6>
-                <input type="password" id="passAdmin" class="form-control my-3" placeholder="Password">
-                <button class="btn btn-success w-100" onclick="authAdmin()">MASUK</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalAdmin" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-                <h5 class="modal-title">Edit Data RT 02</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label class="small fw-bold">Update Pendapatan (Rp)</label>
-                    <input type="number" id="in-pen" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="small fw-bold">Update Pengeluaran (Rp)</label>
-                    <input type="number" id="in-peng" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="small fw-bold">Saldo Akhir (Rp)</label>
-                    <input type="number" id="in-sal" class="form-control">
-                </div>
-                <hr>
-                <div class="mb-3">
-                    <label class="small fw-bold">Tambah Agenda Baru</label>
-                    <input type="text" id="in-ag" class="form-control" placeholder="Nama Kegiatan & Tanggal">
-                </div>
-                <button class="btn btn-success w-100 fw-bold" onclick="updateWarga()">SIMPAN PERUBAHAN</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function cekKtp() {
-        const val = document.getElementById('ktpSelect').value;
-        document.getElementById('alamatTambahan').style.display = (val === 'luar') ? 'block' : 'none';
-    }
-
-    function authAdmin() {
-        if(document.getElementById('passAdmin').value === "rt02ok") {
-            bootstrap.Modal.getInstance(document.getElementById('modalLogin')).hide();
-            new bootstrap.Modal(document.getElementById('modalAdmin')).show();
-        } else { alert("Password Salah!"); }
-    }
-
-    function updateWarga() {
-        const pen = document.getElementById('in-pen').value;
-        const peng = document.getElementById('in-peng').value;
-        const sal = document.getElementById('in-sal').value;
-        const ag = document.getElementById('in-ag').value;
-
-        if(pen) document.getElementById('disp-pendapatan').innerText = "Rp " + parseInt(pen).toLocaleString('id-ID');
-        if(peng) document.getElementById('disp-pengeluaran').innerText = "Rp " + parseInt(peng).toLocaleString('id-ID');
-        if(sal) document.getElementById('disp-saldo').innerText = "Rp " + parseInt(sal).toLocaleString('id-ID');
-
-        if(ag) {
-            const div = document.createElement('div');
-            div.className = "agenda-item border-success";
-            div.innerHTML = `<h6 class="mb-0 fw-bold">${ag}</h6><small class="text-muted">Ditambahkan Baru</small>`;
-            document.getElementById('agenda-box').appendChild(div);
-        }
-        alert("Data RT 02 Gang Kabel Berhasil Diupdate!");
-        bootstrap.Modal.getInstance(document.getElementById('modalAdmin')).hide();
-    }
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
