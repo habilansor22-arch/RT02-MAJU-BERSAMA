@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Transparansi RT 02 Gang Kabel</title>
+    <title>RT 02 Gang Kabel - Digital</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -13,249 +13,168 @@
         :root {
             --primary: #1a5d1a; 
             --accent: #f4ce14;
-            --text-dark: #000000; /* Hitam pekat agar terbaca jelas */
-            --bg-soft: #f8faf9;
+            --box-color: #f0f7f0; /* Hijau Mint Lembut (Pengganti Putih) */
+            --text-dark: #000000;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-soft);
+            background-color: #e8eee8; /* Background utama abu-hijau */
             color: var(--text-dark);
-            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Hero Section */
+        /* Hero Section - Sinkron di HP & Laptop */
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1350&q=80');
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1000&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: scroll; /* Lebih stabil untuk browser HP */
             color: white;
-            padding: 120px 0 80px;
-            border-radius: 0 0 40px 40px;
+            padding: 100px 20px 60px;
+            text-align: center;
+            border-bottom: 8px solid var(--accent);
         }
 
-        .badge-rt {
-            background-color: var(--accent);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            display: inline-block;
+        /* Container agar rapi di semua layar */
+        .container-custom {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
         }
 
-        /* Kartu Misi - Teks Hitam Tajam */
-        .misi-card {
-            border: none;
+        /* Kotak Visi Misi - Tidak lagi putih polos */
+        .visi-box {
+            background-color: var(--box-color);
+            border: 2px solid var(--primary);
             border-radius: 20px;
-            background: white;
             padding: 30px;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .misi-card {
+            background-color: var(--box-color);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 25px;
             height: 100%;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            border-top: 6px solid var(--primary);
             transition: 0.3s;
+            text-align: center;
         }
 
         .misi-card i { font-size: 2.5rem; color: var(--primary); }
-        
         .misi-card p {
-            color: #000000 !important;
-            font-weight: 600;
-            line-height: 1.6;
+            font-weight: 700; /* Teks sangat tebal agar terbaca */
+            color: #000 !important;
             margin-top: 15px;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         /* Tabel Transparansi Keuangan */
-        .table-container {
-            background: white;
-            padding: 25px;
+        .table-section {
+            background: var(--box-color);
+            padding: 20px;
             border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid var(--primary);
+            margin-top: 40px;
         }
 
         .table thead { background-color: var(--primary); color: white; }
-        .table th, .table td { padding: 15px; border-bottom: 1px solid #eee; color: #000; }
-        
-        .text-masuk { color: #1a5d1a; font-weight: 700; }
-        .text-keluar { color: #d32f2f; font-weight: 700; }
+        .table td { color: #000; font-weight: 600; border-bottom: 1px solid #ccd6cc; }
 
-        .custom-card {
-            border: none;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            background: white;
-            padding: 25px;
+        /* Pengaturan Responsif HP */
+        @media (max-width: 768px) {
+            .hero-section { padding: 80px 15px 50px; }
+            .hero-section h1 { font-size: 1.8rem; }
+            .visi-box { margin-top: -20px; padding: 20px; }
+            .misi-card { margin-bottom: 15px; }
         }
-
-        .nav-link { font-weight: 700; color: white !important; }
-        .section-title { font-weight: 800; margin-bottom: 40px; text-align: center; }
-        .btn-admin-float { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 mt-2">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#"><i class="bi bi-houses-fill me-2"></i>RT 02 GANG KABEL</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto text-center">
-                <li class="nav-item"><a class="nav-link" href="#visi-misi">Visi Misi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#keuangan">Keuangan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#lapor">Lapor Diri</a></li>
-                <li class="nav-item"><a class="nav-link" href="#info">Informasi</a></li>
-            </ul>
-        </div>
+<section class="hero-section">
+    <div class="container-custom">
+        <h1 class="fw-bold">RT 02 GANG KABEL</h1>
+        <p class="fw-bold text-warning">Kec. Cipondoh, Kota Tangerang</p>
     </div>
-</nav>
+</section>
 
-<header class="hero-section text-center px-3">
-    <div class="container border-bottom-0" id="visi-misi">
-        <div class="badge-rt">SISTEM INFORMASI WARGA</div>
-        <h1 class="display-5 fw-bold mb-3">RT 02 GANG KABEL</h1>
-        <p class="lead fw-bold opacity-90 mb-5">"Mewujudkan Lingkungan yang Harmonis, Aman, dan Transparan"</p>
-        
-        <div class="row g-4 text-start mt-2">
-            <div class="col-md-3">
-                <div class="misi-card text-center">
-                    <i class="bi bi-megaphone"></i>
-                    <p>Informasi agenda & anggaran disampaikan secara terbuka.</p>
-                </div>
+<div class="container-custom">
+    <div class="visi-box text-center mb-5">
+        <h4 class="fw-bold text-success mb-3">VISI KAMI</h4>
+        <h5 class="fw-bold" style="line-height: 1.6;">"Mewujudkan Lingkungan yang Harmonis, Aman, dan Mengedepankan Transparansi Informasi demi Kemajuan Bersama."</h5>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-6 col-md-3">
+            <div class="misi-card">
+                <i class="bi bi-megaphone"></i>
+                <p>Informasi & Anggaran Terbuka</p>
             </div>
-            <div class="col-md-3">
-                <div class="misi-card text-center">
-                    <i class="bi bi-shield-check"></i>
-                    <p>Lingkungan tertib melalui koordinasi aktif seluruh warga.</p>
-                </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="misi-card">
+                <i class="bi bi-shield-check"></i>
+                <p>Keamanan & Ketertiban Aktif</p>
             </div>
-            <div class="col-md-3">
-                <div class="misi-card text-center">
-                    <i class="bi bi-journal-check"></i>
-                    <p>Administrasi jujur dan tanggung jawab penuh kepada warga.</p>
-                </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="misi-card">
+                <i class="bi bi-journal-check"></i>
+                <p>Administrasi Jujur & Akuntabel</p>
             </div>
-            <div class="col-md-3">
-                <div class="misi-card text-center">
-                    <i class="bi bi-chat-dots"></i>
-                    <p>Ruang diskusi terbuka untuk saran dan kritik demi kemajuan.</p>
-                </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="misi-card">
+                <i class="bi bi-chat-dots"></i>
+                <p>Ruang Diskusi & Aspirasi Warga</p>
             </div>
         </div>
     </div>
-</header>
 
-<main class="container py-5">
-    
-    <section id="keuangan" class="mb-5">
-        <h3 class="section-title">Transparansi Keuangan RT 02</h3>
-        
-        <div class="row g-4 text-center mb-4">
-            <div class="col-md-4">
-                <div class="custom-card border-bottom border-success border-5">
-                    <h6 class="fw-bold text-muted small">TOTAL PENDAPATAN</h6>
-                    <h3 class="fw-bold text-success">Rp 5.250.000</h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-card border-bottom border-danger border-5">
-                    <h6 class="fw-bold text-muted small">TOTAL PENGELUARAN</h6>
-                    <h3 class="fw-bold text-danger">Rp 1.550.000</h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-card bg-success text-white">
-                    <h6 class="fw-bold small">SALDO KAS SAAT INI</h6>
-                    <h3 class="fw-bold">Rp 3.700.000</h3>
-                </div>
-            </div>
+    <div class="table-section shadow-sm">
+        <h4 class="fw-bold text-center mb-4"><i class="bi bi-wallet2 me-2"></i>Rincian Kas RT 02</h4>
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Kegiatan</th>
+                        <th class="text-end">Masuk (Rp)</th>
+                        <th class="text-end">Keluar (Rp)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Iuran Warga Jan 2026</td>
+                        <td class="text-end text-success fw-bold">+5.000.000</td>
+                        <td class="text-end">-</td>
+                    </tr>
+                    <tr>
+                        <td>Lampu & Kebersihan</td>
+                        <td class="text-end">-</td>
+                        <td class="text-end text-danger fw-bold">-1.250.000</td>
+                    </tr>
+                    <tr class="table-dark">
+                        <td class="fw-bold">SALDO AKHIR</td>
+                        <td colspan="2" class="text-end fw-bold text-warning">Rp 3.750.000</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="table-container shadow-sm">
-            <h5 class="fw-bold mb-3"><i class="bi bi-list-ul me-2"></i>Rincian Transaksi Januari 2026</h5>
-            <div class="table-responsive">
-                <table class="table align-middle">
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Keterangan Kegiatan</th>
-                            <th class="text-end">Masuk (Rp)</th>
-                            <th class="text-end">Keluar (Rp)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01/01/26</td>
-                            <td>Iuran Bulanan & Kebersihan Warga</td>
-                            <td class="text-end text-masuk">+5.000.000</td>
-                            <td class="text-end">-</td>
-                        </tr>
-                        <tr>
-                            <td>03/01/26</td>
-                            <td>Pembelian Lampu Jalan (5 Titik)</td>
-                            <td class="text-end">-</td>
-                            <td class="text-end text-keluar">-350.000</td>
-                        </tr>
-                        <tr>
-                            <td>05/01/26</td>
-                            <td>Biaya Angkut Sampah & Selokan</td>
-                            <td class="text-end">-</td>
-                            <td class="text-end text-keluar">-1.200.000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="lapor" class="row g-4">
-        <div class="col-md-7">
-            <div class="custom-card h-100">
-                <h4 class="fw-bold mb-4">Formulir Lapor Diri</h4>
-                <form>
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Nama Lengkap (Sesuai KTP)</label>
-                        <input type="text" class="form-control" placeholder="Nama Lengkap">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Status KTP</label>
-                        <select class="form-select">
-                            <option>KTP Cipondoh</option>
-                            <option>KTP Luar Cipondoh</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-success w-100 fw-bold py-2">KIRIM DATA</button>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div id="info" class="custom-card h-100 border-start border-primary border-5">
-                <h4 class="fw-bold">Agenda Mendatang</h4>
-                <div class="mt-4">
-                    <div class="agenda-item">
-                        <h6 class="mb-0 fw-bold">Rapat Keamanan Lingkungan</h6>
-                        <small class="text-muted">Minggu, 11 Jan 2026 - 19:30 WIB</small>
-                    </div>
-                    <div class="agenda-item">
-                        <h6 class="mb-0 fw-bold">Kerja Bakti & Fogging</h6>
-                        <small class="text-muted">Minggu, 18 Jan 2026 - 07:00 WIB</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="bg-dark text-white py-4 text-center mt-5">
-    <p class="mb-0 opacity-75">© 2026 Pengurus RT 02 Gang Kabel | Transparansi & Akuntabilitas</p>
-</footer>
-
-<div class="btn-admin-float">
-    <button class="btn btn-dark shadow-lg rounded-circle p-3"><i class="bi bi-gear-fill"></i></button>
+    </div>
 </div>
+
+<footer class="py-5 text-center">
+    <p class="fw-bold mb-0">© 2026 RT 02 GANG KABEL DIGITAL</p>
+    <small class="text-muted">Melayani Warga dengan Transparansi & Ketulusan</small>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
