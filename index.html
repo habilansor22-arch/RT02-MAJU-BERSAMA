@@ -136,29 +136,80 @@
 
 <main class="container py-5">
     
-    <section id="keuangan" class="mb-5">
-        <h3 class="section-title">Laporan Keuangan RT 02</h3>
-        <div class="row g-4 text-center">
-            <div class="col-md-4">
-                <div class="custom-card border-bottom border-success border-5">
-                    <h6 class="text-muted small">PENDAPATAN BULAN INI</h6>
-                    <h3 class="fw-bold text-success" id="disp-pendapatan">Rp 0</h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-card border-bottom border-danger border-5">
-                    <h6 class="text-muted small">PENGELUARAN BULAN INI</h6>
-                    <h3 class="fw-bold text-danger" id="disp-pengeluaran">Rp 0</h3>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="custom-card bg-success text-white">
-                    <h6 class="small">SALDO KAS GANG KABEL</h6>
-                    <h3 class="fw-bold" id="disp-saldo">Rp 0</h3>
-                </div>
+<section id="keuangan" class="mb-5 py-4">
+    <h3 class="section-title">Transparansi Keuangan RT 02</h3>
+    
+    <div class="row g-4 text-center mb-4">
+        <div class="col-md-4">
+            <div class="custom-card border-bottom border-success border-5">
+                <h6 class="fw-bold text-muted small">TOTAL PENDAPATAN</h6>
+                <h3 class="fw-bold text-success" id="disp-pendapatan">Rp 5.250.000</h3>
             </div>
         </div>
-    </section>
+        <div class="col-md-4">
+            <div class="custom-card border-bottom border-danger border-5">
+                <h6 class="fw-bold text-muted small">TOTAL PENGELUARAN</h6>
+                <h3 class="fw-bold text-danger" id="disp-pengeluaran">Rp 1.550.000</h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="custom-card bg-success text-white shadow">
+                <h6 class="fw-bold small">SALDO KAS SAAT INI</h6>
+                <h3 class="fw-bold" id="disp-saldo">Rp 3.700.000</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-card border-0 shadow-sm">
+        <h5 class="fw-bold mb-3"><i class="bi bi-list-ul me-2"></i>Rincian Arus Kas Januari 2026</h5>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 15%">Tanggal</th>
+                        <th style="width: 45%">Keterangan Kegiatan</th>
+                        <th style="width: 20%" class="text-end">Masuk (Rp)</th>
+                        <th style="width: 20%" class="text-end">Keluar (Rp)</th>
+                    </tr>
+                </thead>
+                <tbody id="tabel-transaksi">
+                    <tr>
+                        <td>01/01/26</td>
+                        <td>Iuran Bulanan Warga (Wajib & Kebersihan)</td>
+                        <td class="text-success text-end">+5.000.000</td>
+                        <td class="text-end">-</td>
+                    </tr>
+                    <tr>
+                        <td>03/01/26</td>
+                        <td>Pembelian Lampu Jalan Gang Kabel (5 Titik)</td>
+                        <td class="text-end">-</td>
+                        <td class="text-danger text-end">-350.000</td>
+                    </tr>
+                    <tr>
+                        <td>05/01/26</td>
+                        <td>Biaya Angkut Sampah & Kebersihan Selokan</td>
+                        <td class="text-end">-</td>
+                        <td class="text-danger text-end">-1.200.000</td>
+                    </tr>
+                    <tr>
+                        <td>07/01/26</td>
+                        <td>Donasi Warga (Sumbangan Sukarela)</td>
+                        <td class="text-success text-end">+250.000</td>
+                        <td class="text-end">-</td>
+                    </tr>
+                </tbody>
+                <tfoot class="table-light fw-bold">
+                    <tr>
+                        <td colspan="2" class="text-center">Total Arus Kas</td>
+                        <td class="text-success text-end">+5.250.000</td>
+                        <td class="text-danger text-end">-1.550.000</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <p class="small text-muted mt-2"><i>* Data diperbarui setiap minggu sesuai catatan administrasi RT 02.</i></p>
+    </div>
+</section>
 
     <section id="lapor" class="mb-5">
         <div class="custom-card bg-white p-4 p-md-5">
